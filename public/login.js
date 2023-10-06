@@ -12,6 +12,7 @@ function submit(){
         axios.post('http://localhost:8080/login',obj)
         .then(responce=>{
            alert(responce.data.message)
+           window.location.href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/chat.html"
         })
         .catch(err=>{
             console.log(err)

@@ -51,7 +51,7 @@ exports.loginUser = async (req, res, next) => {
             }
             if (result === true) {
 
-               res.status(202).json({ message: 'login successful', token: generatetoken(users[i].id) })
+               res.status(202).json({ message: 'login successful', token: generatetoken(existingUsers.id),name:existingUsers.username })
 
             }
             else {
