@@ -10,7 +10,8 @@ const Messages = sequelize.define('messages', {
     primaryKey: true
   },
   userId: Sequelize.STRING,
-  message: Sequelize.STRING,
+  name:Sequelize.STRING,
+  message: Sequelize.STRING
   
  
 });
