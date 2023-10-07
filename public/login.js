@@ -13,6 +13,7 @@ function submit(){
         .then(responce=>{
            alert(responce.data.message)
            window.location.href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/chat.html"
+           localStorage.setItem('token',responce.data.token)
         })
         .catch(err=>{
             console.log(err)
