@@ -11,16 +11,22 @@ function sendMessage(){
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
-    console.log("nithin")
-    axios.get("http://localhost:8080/getMessages")
-    .then((responce)=>{
-    for(let i=0; i<responce.data.getMessages.length; i++){
-        showMessagesOnScreen(responce.data.getMessages[i])
+    console.log("nithin");
+    var x=0;
+     setInterval(() => {
+        axios.get("http://localhost:8080/getMessages")
+        .then((responce)=>{
+            if(x<responce.data.getMessages.length){
+        for(let i=x; i<responce.data.getMessages.length; i++){
+            showMessagesOnScreen(responce.data.getMessages[i])
+            x=i+1
+        }
     }
+    })
+        .catch((err)=>console.log(err))
+     }, 1000);
+       
     
-})
-    .catch((err)=>console.log(err))
-   
 })
 function showMessagesOnScreen(messages){
 let li = document.createElement('li')
