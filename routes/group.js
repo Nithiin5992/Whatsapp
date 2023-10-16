@@ -7,8 +7,9 @@ router.post('/group',authenticatemiddleware.authenticate,groupController.postgro
 router.get('/group',authenticatemiddleware.authenticate,groupController.getgroup)
 
 router.post('/postgroupMembers',groupController.postgroupMembers)
-router.get('/getgroupMembers',authenticatemiddleware.authenticate,groupController.getgroupMembers)
+router.get('/getgroupMembers',groupController.getgroupMembers)
 router.post('/postgroupMessages',authenticatemiddleware.authenticate,groupController.postgroupMessages)
 router.get('/getgroupMessages',groupController.getgroupMessages)
+router.delete('/deletegroupMembers',groupController.deletegroupMembers)
 
 module.exports=router;

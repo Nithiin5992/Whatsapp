@@ -34,7 +34,7 @@ exports.postgroupMembers=async (req,res,next)=>{
 }
 exports.getgroupMembers=async (req,res,next)=>{
     try{
-          const id=req.body.groupId
+        const id=req.header('authorization')
           const groupmembers=await GroupUsers.findAll({where:{groupId:id}})
         res.status(202).json({success:true,"groupmembers":groupmembers})
     }catch(err){
@@ -61,6 +61,16 @@ exports.getgroupMessages=async (req,res,next)=>{
         console.log(id)
         const groupmessages=await GroupMessages.findAll({where:{GroupId:id}})
         res.status(202).json({success:true,"groupmessages":groupmessages})
+    }catch(err){
+        console.log(err)
+    }
+}
+
+exports.deletegroupMembers=async (req,res,next)=>{
+    try{
+        const username=req.header('authorization')
+        await GroupUsers.destroy({where:{username:username}})
+        res.status(202).json({success:true})
     }catch(err){
         console.log(err)
     }

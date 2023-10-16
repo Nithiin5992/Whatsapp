@@ -1,18 +1,3 @@
-function createnewgroup() {
-    var groupname = document.getElementById('groupname').value
-    const token = localStorage.getItem('token')
-    const obj = {
-        groupname
-    }
-    axios.post("http://localhost:8080/group", obj, { headers: { 'authorization': token } })
-        .then((responce) => {
-            console.log(responce)
-            window.location.href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/mainchat/chat.html"
-        })
-
-        .catch((err) => console.log(err))
-
-}
 
 function groupmessages(){
     const chatmessage=document.getElementById('chatmessage').value
