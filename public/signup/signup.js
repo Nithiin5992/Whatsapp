@@ -13,7 +13,7 @@ console.log(obj)
     axios.post('http://localhost:8080/signup',obj)
     .then(responce=>{
        alert(responce.data.message)
-       window.location.href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/login.html"
+       window.location.href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/login/login.html"
     })
     .catch(err=>{
         console.log(err)

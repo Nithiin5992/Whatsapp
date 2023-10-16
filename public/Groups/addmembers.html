@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+
+<head>
+    <h1>Users</h1>
+</head>
+
+
+    <body>
+      <ul id="members">
+
+      </ul> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+      <script>addMembers()
+      function addMembers(){
+ const members=document.getElementById('members')
+ const groupId=localStorage.getItem('groupId')
+ 
+ axios.get("http://localhost:8080/getUsers")
+        .then((responce) => {
+            console.log(responce)
+            for(let i=0;i<responce.data.Users.length;i++){
+                var li=document.createElement('li')
+                li.appendChild(document.createTextNode(responce.data.Users[i].username))
+                var button=document.createElement('button')
+                button.appendChild(document.createTextNode('Add'))
+                li.appendChild(button)
+                members.appendChild(li)
+                button.onclick=function(){
+                    username=responce.data.Users[i].username;
+            
+                    var obj={
+                      username,
+                      groupId
+
+                    }
+                    console.log(obj)
+                    axios.post("http://localhost:8080/postgroupMembers",obj)
+                }
+            }
+        })
+
+        .catch((err) => console.log(err))
+}
+    </script> 
+    
+    
+      
+    </body>
+
+
+</body>
+
+</html>

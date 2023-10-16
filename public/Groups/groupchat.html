@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+
+
+<ul>
+
+    <body>
+        <h1 id="title"></h1>
+        <button>VIEW MEMBERS</button>
+        <a href="file:///C:/Users/Nithin%20kumar/Desktop/Nithin/.vscode/Whatsapp/public/Groups/addmembers.html">ADD MEMBERS</a>
+        <br></br>
+        <ul id="messageBox"></ul>
+        <input type="text" id="chatmessage">
+        <button onclick="groupmessages()">SEND</button>
+        <script>
+            const title=document.getElementById('title')
+            title.appendChild(document.createTextNode(localStorage.getItem('groupName')))
+        </script>
+        <script src="./group.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    </body>
+
+</ul>
+
+
+</html>

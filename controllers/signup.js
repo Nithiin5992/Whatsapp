@@ -65,3 +65,11 @@ exports.loginUser = async (req, res, next) => {
    }
    catch (err) { (console.log(err)) }
 }
+
+exports.getUsers= async (req, res, next) => {
+   try {
+      const existingUsers = await User.findAll()
+      res.status(201).json({'Users':existingUsers})
+   }
+   catch (err) { (console.log(err)) }
+}
